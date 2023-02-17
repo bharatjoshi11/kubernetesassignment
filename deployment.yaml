@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  
+  name: bharat-project
+  namespace: ingress-nginx
+  labels:
+    app: django-test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: django-test
+  template:
+    metadata:
+      labels:
+        app: django-test
+    spec:
+      containers:
+      - name: bharat-test
+        image: bharatjoshi98/bharat:2.0
+        ports:
+        - containerPort: 8000
